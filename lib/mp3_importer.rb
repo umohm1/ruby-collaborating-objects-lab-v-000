@@ -5,13 +5,15 @@ class MP3Importer
    @path = path
   end
 
-  def files(filename)
-    files = Dir.glob("*.mp3s")
+  def files
+    files = Dir.entries("mp3s")
     puts files
   end
 
   def import
-  #  importer = MP3Importer.new(path)
+    def import(list_of_filenames)
+      list_of_filenames.each{ |filename| Song.new_by_filename(filename) }
+    end
   end
 
 end

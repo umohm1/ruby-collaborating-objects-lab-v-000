@@ -1,5 +1,5 @@
 class Song
-  attr_reader :name, :artist
+  attr_reader :name, :artist, :title
 
   def initialize(name)
     @name = name
@@ -14,10 +14,8 @@ end
  end
 
  def self.new_by_filename(filename)
-   parts = filename.split(" - ")
-   #song = self.new(file)
-   #song.name = name
-
- end
-
+    song = self.new
+    song.title = filename.split(" - ")[1]
+    song
+  end
 end
